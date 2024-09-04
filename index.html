@@ -3,56 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Media Library</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .video-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .video-item {
-            margin: 15px;
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 320px;
-            text-align: center;
-        }
-        video {
-            width: 100%;
-            border-radius: 8px;
-        }
-    </style>
+    <title>Custom Media Player</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>My Media Library</h1>
-    <div class="video-container">
-        <div class="video-item">
-            <h2>Movie Title 1</h2>
-            <video controls>
-                <source src="videos/movie1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <header>
+        <h1>Custom Media Player</h1>
+    </header>
+    
+    <main>
+        <section id="moviesContainer">
+            <h2>Movies</h2>
+            <!-- Movies will be dynamically loaded here -->
+        </section>
+
+        <section id="showsContainer">
+            <h2>TV Shows</h2>
+            <!-- TV Shows and seasons will be dynamically loaded here -->
+        </section>
+
+        <div id="mediaModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <video id="mediaPlayer" controls></video>
+                <div id="mediaControls" class="media-controls">
+                    <button id="playPauseBtn">Play</button>
+                    <button id="skipBtn">Skip</button>
+                    <input id="seekBar" type="range" min="0" max="100" value="0">
+                    <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                </div>
+                <div id="mediaDropdowns" class="media-dropdowns">
+                    <select id="seasonDropdown" class="dropdown" style="display: none;">
+                        <!-- Seasons will be dynamically loaded here -->
+                    </select>
+                    <select id="episodeDropdown" class="dropdown" style="display: none;">
+                        <!-- Episodes will be dynamically loaded here -->
+                    </select>
+                </div>
+            </div>
         </div>
-        <div class="video-item">
-            <h2>Movie Title 2</h2>
-            <video controls>
-                <source src="videos/movie2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <!-- Add more video items as needed -->
-    </div>
+    </main>
+    
+    <script src="script.js"></script>
 </body>
 </html>
